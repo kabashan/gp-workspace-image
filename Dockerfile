@@ -8,7 +8,9 @@ SHELL [ "/bin/bash", "-c" ]
 RUN . $HOME/.nvm/nvm.sh && \
     nvm install 18.12.1 && \
     nvm alias default 18.12.1 && \
-    npm install yarn -g
+    nvm use default && \
+    npm install yarn -g && \
+    nvm uninstall 20
 
 # Install terraform
 # (See this https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
@@ -26,3 +28,6 @@ RUN sudo apt-get update && sudo apt-get install -y gnupg software-properties-com
 RUN curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-476.0.0-linux-x86_64.tar.gz && \
     tar -xf google-cloud-cli-476.0.0-linux-x86_64.tar.gz && rm google-cloud-cli-476.0.0-linux-x86_64.tar.gz && \
     ./google-cloud-sdk/install.sh -q --path-update true
+
+# Envs
+ENV GOOGLE_APPLICATION_CREDENTIALS /workspace/.gcp/default.json
