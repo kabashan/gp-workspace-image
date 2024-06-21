@@ -29,5 +29,8 @@ RUN curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cl
     tar -xf google-cloud-cli-476.0.0-linux-x86_64.tar.gz && rm google-cloud-cli-476.0.0-linux-x86_64.tar.gz && \
     ./google-cloud-sdk/install.sh -q --path-update true
 
+# Install other tools
+RUN sudo apt-get install -y git-flow
+
 # Envs
 ENV GOOGLE_APPLICATION_CREDENTIALS /workspace/.gcp/default.json

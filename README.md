@@ -20,12 +20,13 @@ Login Succeeded
 
 And then, just push your image with tag name.
 ```
-$ docker tag kabashan/workspace-image:test kabashan/workspace-image:latest
-$ docker images
-kabashan/workspace-image   latest    50ef7e37f82e   5 minutes ago   8.77GB
-kabashan/workspace-image   test      50ef7e37f82e   5 minutes ago   8.77GB
+export dt=$(date +%Y%m%d)
+$ docker build -t kabashan/gitpod-workspace-image:$dt .
 
-$ docker push kabashan/workspace-image:latest
+$ docker images
+kabashan/gitpod-workspace-image   20240621   a5a11f4b2415   53 seconds ago   8.77GB
+
+$ docker push kabashan/gitpod-workspace-image:$dt
 ...
 ...
 latest: digest: sha256:503850f6dab57ced4bcb06c6318baf72fc90d163a0286c6b37ccda3099d4769e size: 13958
