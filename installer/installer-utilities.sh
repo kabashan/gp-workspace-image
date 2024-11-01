@@ -29,7 +29,7 @@ rm -r aws awscliv2.zip
 
 # Install slack
 curl -fsSL https://downloads.slack-edge.com/slack-cli/install.sh | bash
-export PATH=$HOME/.slack/bin/:$PATH
+echo 'export PATH=$HOME/.slack/bin/:$PATH' >> $HOME/.profile
 
 # Install snowsql
 curl -LO https://sfc-repo.azure.snowflakecomputing.com/snowsql/bootstrap/1.2/linux_x86_64/snowsql-1.2.32-linux_x86_64.bash
@@ -37,6 +37,4 @@ SNOWSQL_DEST=$HOME/bin SNOWSQL_LOGIN_SHELL=$HOME/.profile bash snowsql-1.2.32-li
 rm snowsql-1.2.32-linux_x86_64.bash
 
 # Install snow client
-wget https://sfc-repo.snowflakecomputing.com/snowflake-cli/linux_x86_64/3.1.0/snowflake-cli-3.1.0.x86_64.deb
-sudo dpkg -i snowflake-cli-3.1.0.x86_64.deb
-rm snowflake-cli-3.1.0.x86_64.deb
+pip install snowflake-cli

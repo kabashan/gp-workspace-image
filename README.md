@@ -21,7 +21,7 @@ Login Succeeded
 And then, just push your image with tag name.
 ```
 export dt=$(date +%Y%m%d)
-$ docker build -t kabashan/gitpod-workspace-image:$dt .
+docker build -t kabashan/gitpod-workspace-image:$dt .
 
 $ docker images
 kabashan/gitpod-workspace-image   20240621   a5a11f4b2415   53 seconds ago   8.77GB
