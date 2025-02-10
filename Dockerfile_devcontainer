@@ -1,0 +1,32 @@
+FROM mcr.microsoft.com/devcontainers/base:ubuntu
+
+SHELL [ "/bin/bash", "-c" ]
+
+WORKDIR /var/tmp/
+
+COPY installer/* .
+
+USER root
+
+# Install libs
+RUN ./installer-initial.sh
+
+USER vscode
+
+# Install python
+RUN ./installer-python.sh
+
+# Install nodejs
+RUN ./installer-node-fish.sh
+
+# Install terraform
+RUN ./installer-terraform.sh
+
+# Install other softwares
+RUN ./installer-utilities.sh
+
+# Envs
+ENV GOOGLE_APPLICATION_CREDENTIALS /home/vscode/.gcp/trocco-action-dev-terraform.json
+ENV AWS_CONFIG_FILE /home/vscode/.aws/config
+ENV AWS_SHARED_CREDENTIALS_FILE /home/vscode/.aws/credentials
+ENV AWS_PROFILE ca

@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# Install
+# Copy aws credentials
+mkdir -p $HOME/.aws
+
 sudo apt-get update && sudo apt-get install -y git-flow fish shellcheck
 
 # Install cloud sdk for google cloud
@@ -9,7 +11,6 @@ sudo apt-get install -y apt-transport-https ca-certificates gnupg curl
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
 echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
 sudo apt-get update && sudo apt-get install -y google-cloud-cli
-mkdir -p $HOME/.gcp
 
 
 # Install github client
@@ -27,7 +28,6 @@ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip
 unzip -q awscliv2.zip
 sudo ./aws/install
 rm -r aws awscliv2.zip
-mkdir -p $HOME/.aws
 
 # Install slack
 curl -fsSL https://downloads.slack-edge.com/slack-cli/install.sh | bash
