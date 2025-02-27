@@ -28,6 +28,7 @@ $ docker images
 kabashan/gitpod-workspace-image   20240621   a5a11f4b2415   53 seconds ago   8.77GB
 
 $ docker push kabashan/gitpod-workspace-image:$dt
+$ docker push kabashan/gitpod-workspace-image:$dt-flex
 ...
 ...
 latest: digest: sha256:503850f6dab57ced4bcb06c6318baf72fc90d163a0286c6b37ccda3099d4769e size: 13958

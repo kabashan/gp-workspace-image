@@ -26,7 +26,10 @@ RUN ./installer-terraform.sh
 RUN ./installer-utilities.sh
 
 # Envs
-ENV GOOGLE_APPLICATION_CREDENTIALS /home/vscode/.gcp/trocco-action-dev-terraform.json
-ENV AWS_CONFIG_FILE /home/vscode/.aws/config
-ENV AWS_SHARED_CREDENTIALS_FILE /home/vscode/.aws/credentials
-ENV AWS_PROFILE ca
+ENV GOOGLE_APPLICATION_CREDENTIALS=/home/vscode/.gcp/trocco-action-dev-terraform.json
+ENV AWS_CONFIG_FILE=/home/vscode/.aws/config
+ENV AWS_SHARED_CREDENTIALS_FILE=/home/vscode/.aws/credentials
+ENV AWS_PROFILE=ca
+
+# Others
+RUN fish -c 'fish_add_path /home/vscode/bin'
